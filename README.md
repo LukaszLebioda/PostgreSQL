@@ -17,16 +17,36 @@
 - now we have access to psql command;
 - terminal => psql --help (some help);
 - psql => help => to see short list of hints;
-- psql => e.g. \q (quit), \l (list databases), \? (more help);
+- psql => e.g. \q (quit), \? (more help);
 
-## connect to a database:
+## connect to a database + commands:
 
 - psql -h localhost -p 5432 -U llebioda mypostgres (to connect to a database);
-- psql => \l; psql => \c mypostgres;
+- or: \c mypostgres
+- psql => \l => list all databases
+- psql => \d => list all tables
+- psql => \d tablename => displays particular table
 
 # SQL
 
 ## Databases
 
-- CREATE DATABASE mypostgres;
-- DROP DATABASE mypostgres;
+each command must end with " ; ", otherwise it won't be recognized
+
+CREATE DATABASE mypostgres;
+DROP DATABASE mypostgres;
+
+CREATE TABLE mytable (
+id BIGSERIAL NOT NULL PRIMARY KEY,
+name VARCHAR(50) NOT NULL,
+age INT NOT NULL,
+date DATE,
+email VARCHAR(150)
+);
+DROP TABLE mytable;
+
+# to-do
+
+- Postgress.app => PostgreSQL 17 => start server,
+- terminal => psql,
+- psql => \c databasename,
